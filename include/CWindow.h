@@ -1,6 +1,10 @@
 #ifndef CWINDOW_H
 #define CWINDOW_H
 
+#ifdef _WIN32
+//#define __WIN32__
+#endif
+
 #include <SDL2/SDL.h>
 
 #include <Cstructs.h>

@@ -1,6 +1,6 @@
 #include <CSprite.h>
 #include <SDL2/SDL_image.h>
-
+#include <string.h>
 
 CSprite* createCSprite(CWindow* window, char* path, RowCollumn rowcollumn){
     CSprite* sprite = (CSprite*)malloc(sizeof(CSprite));

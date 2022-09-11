@@ -21,42 +21,42 @@ Someone may now think - why not use C++ then - it's because of the FFI (foreign 
 - [Chris C Rendering Lib Documentation (Version 1.0)](#chris-c-rendering-lib-documentation-version-10)
 - [Version Notes](#version-notes)
 - [Table of Contents](#table-of-contents)
-  - [Classes](#classes)
-    - [CWindow Class](#cwindow-class)
-      - [Definition:](#definition)
-      - [Functions:](#functions)
-        - [Constructor / Destructor:](#constructor--destructor)
-        - [Getter and setter:](#getter-and-setter)
-        - [Rendering:](#rendering)
-        - [Events](#events)
-        - [Other Functions](#other-functions)
-    - [CSprite Class](#csprite-class)
-      - [Definition:](#definition-1)
-      - [Functions:](#functions-1)
-        - [Constructor / Destructor:](#constructor--destructor-1)
-        - [Getter and Setter:](#getter-and-setter-1)
-    - [CSpriteInstance Class](#cspriteinstance-class)
-      - [Definition:](#definition-2)
-      - [Functions:](#functions-2)
-        - [Constructor / Destructor:](#constructor--destructor-2)
-        - [Getter and Setter](#getter-and-setter-2)
-  - [Structs](#structs)
-    - [PosDim struct (Position and Dimensions)](#posdim-struct-position-and-dimensions)
-      - [Definition:](#definition-3)
-      - [Functions:](#functions-3)
-    - [RowCollumn struct (Rows and Collumns)](#rowcollumn-struct-rows-and-collumns)
-      - [Definition](#definition-4)
-      - [Functions:](#functions-4)
-  - [Enums](#enums)
-    - [Direction enum](#direction-enum)
-      - [Definition:](#definition-5)
+- [Classes](#classes)
+  - [CWindow Class](#cwindow-class)
+    - [Definition:](#definition)
+    - [Functions:](#functions)
+      - [Constructor / Destructor:](#constructor--destructor)
+      - [Getter and setter:](#getter-and-setter)
+      - [Rendering:](#rendering)
+      - [Events](#events)
+      - [Other Functions](#other-functions)
+  - [CSprite Class](#csprite-class)
+    - [Definition:](#definition-1)
+    - [Functions:](#functions-1)
+      - [Constructor / Destructor:](#constructor--destructor-1)
+      - [Getter and Setter:](#getter-and-setter-1)
+  - [CSpriteInstance Class](#cspriteinstance-class)
+    - [Definition:](#definition-2)
+    - [Functions:](#functions-2)
+      - [Constructor / Destructor:](#constructor--destructor-2)
+      - [Getter and Setter](#getter-and-setter-2)
+- [Structs](#structs)
+  - [PosDim struct (Position and Dimensions)](#posdim-struct-position-and-dimensions)
+    - [Definition:](#definition-3)
+    - [Functions:](#functions-3)
+  - [RowCollumn struct (Rows and Collumns)](#rowcollumn-struct-rows-and-collumns)
+    - [Definition](#definition-4)
+    - [Functions:](#functions-4)
+- [Enums](#enums)
+  - [Direction enum](#direction-enum)
+    - [Definition:](#definition-5)
 
-## Classes
+# Classes
 
-### CWindow Class
+## CWindow Class
 The CWindow Class. On creation starts a new Cwindow. Manages all Cwindow related stuff, like dimensions, renderer, ... (more following later)
 
-#### Definition:
+### Definition:
 ``` C
 /*
 @param title: current title of the window
@@ -74,9 +74,9 @@ typedef struct __CWindow{
 }CWindow;
 ```
 
-#### Functions:
+### Functions:
 
-##### Constructor / Destructor:
+#### Constructor / Destructor:
 
 ``` C
 /*
@@ -93,7 +93,7 @@ CWindow* createCWindow(char* title, PosDim posdim, uint16_t FPS, uint32_t FLAGS)
 void destroyCWindow(CWindow* window);
 ```
 
-##### Getter and setter:
+#### Getter and setter:
 
 ``` C
 //returns the title of the Cwindow
@@ -124,7 +124,7 @@ SDL_Window* CWindowGetSDLWindow(CWindow* Cwindow);
 SDL_Renderer* CWindowGetSDLRenderer(CWindow* Cwindow);
 ```
 
-##### Rendering:
+#### Rendering:
 
 ```C
 //polls the Events from the SDL Event Queue
@@ -139,7 +139,7 @@ void CWindowClearScreen(CWindow* Cwindow);
 void CWindowShowRendered(CWindow* Cwindow);
 ```
 
-##### Events
+#### Events
 
 ```C
 /*
@@ -149,7 +149,7 @@ checks if the given key is pressed and returns 1 if true and 0 if false
 int8_t CWindowIsKeyPressed(CWindow* Cwindow, SDL_Scancode keyCode);
 ```
 
-##### Other Functions
+#### Other Functions
 
 ```C
 //pauses the Thread for Delay milliseconds
@@ -160,11 +160,11 @@ void CWindowDelay(CWindow* window);
 ```
 <br>
 
-### CSprite Class
+## CSprite Class
 
 A Sprite Class to handle the load and unload of a sprite. In combination with a CSpriteInstance you can render the Sprite on the window.
 
-#### Definition:
+### Definition:
 
 ```C
 /*
@@ -181,9 +181,9 @@ typedef struct __CSprite{
 }CSprite;
 ```
 
-#### Functions:
+### Functions:
 
-##### Constructor / Destructor:
+#### Constructor / Destructor:
 ```C
 /*
 Constructor for the CSprite Class
@@ -198,7 +198,7 @@ CSprite* createCSprite(CWindow* window, char* path, RowCollumn rowcollumn);
 void destroyCSprite(CSprite* sprite);
 ```
 
-##### Getter and Setter:
+#### Getter and Setter:
 
 ``` C
 /*
@@ -213,11 +213,11 @@ returns the row and the collums of the sprite
 RowCollumn CSpriteGetRowCollumn(CSprite* sprite);
 ```
 
-### CSpriteInstance Class
+## CSpriteInstance Class
 
 A Sprite instance class for handeling the actual rendering on the window. Must be combined with a Sprite.
 
-#### Definition:
+### Definition:
 ```C
 /*
 @param sprite: pointer to the sprite which gets used
@@ -238,9 +238,9 @@ typedef struct __CSpriteInstance{
 }CSpriteInstance; 
 ```
 
-#### Functions:
+### Functions:
 
-##### Constructor / Destructor:
+#### Constructor / Destructor:
 
 ```C
 /*
@@ -254,7 +254,7 @@ CSpriteInstance* createCSpriteInstance(CSprite* sprite, PosDim posdim);
 void destroyCSpriteInstance(CSpriteInstance* instance);
 ```
 
-##### Getter and Setter
+#### Getter and Setter
 
 ```C
 //returns the Sprite of the CSpriteInstance
@@ -319,10 +319,10 @@ void CSpriteInstanceMakeSpriteStepUp(CSpriteInstance* instance);
 void CSpriteInstanceMakeSpriteStepDown(CSpriteInstance* instance);
 ```
 
-## Structs
+# Structs
 
-### PosDim struct (Position and Dimensions)
-#### Definition:
+## PosDim struct (Position and Dimensions)
+### Definition:
 ``` C
 typedef struct __PosDim{
     int32_t x, y;
@@ -330,7 +330,7 @@ typedef struct __PosDim{
 }PosDim;
 ```
 
-#### Functions:
+### Functions:
 ``` C
 /*
 Returns a PosDim struct with the given parameters or NULL if it failes
@@ -342,15 +342,15 @@ Returns a PosDim struct with the given parameters or NULL if it failes
 PosDim createPosDim(int32_t x, int32_t y, uint32_t w, uint32_t h);
 ```
 
-### RowCollumn struct (Rows and Collumns)
-#### Definition
+## RowCollumn struct (Rows and Collumns)
+### Definition
 
 ``` C
 typedef struct __RowCollumn{
   uint32_t r, c;
 }RowCollumn;
 ```
-#### Functions:
+### Functions:
 ```C
 /*
 Returns a RowCollumn struct with the given parameters
@@ -360,10 +360,10 @@ Returns a RowCollumn struct with the given parameters
 RowCollumn createRowCollumn(uint32_t rows, uint32_t collumns);
 ```
 
-## Enums
+# Enums
 
-### Direction enum
-#### Definition:
+## Direction enum
+### Definition:
 ```C
 typedef enum __Direction{
   up,

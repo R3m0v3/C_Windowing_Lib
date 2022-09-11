@@ -191,7 +191,7 @@ void test5(){
 
 
 
-int main(int argc, char const *argv[]){
+int WinMain(int argc, char *argv[]){
     test1();
     test2();
     test3();
